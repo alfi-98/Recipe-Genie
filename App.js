@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text , TextInput, Button, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView} from 'react-native';
 
-const API_KEY = 'skStsmenBa4IZoojPbOiacT3BlbkFJmwr9rdQPuGVCuePcEULO';
-const API_URL = `https://api.openai.com/v1/completions`;
-
 const App = () => {
   const [input, setInput] = useState("")
   const [chatLog, setChatLog] = useState([])
@@ -70,7 +67,8 @@ const App = () => {
 
 const ChatMessage = ({message}) => {
   return (
-    <View style={{borderWidth: 1, borderColor: 'white', padding: 10, marginBottom: 10, borderRadius: 10}}>
+    (message.user === "me" ? (
+      <View style={{borderWidth: 1, borderColor: 'white', padding: 10, marginBottom: 10, borderRadius: 10, backgroundColor: 'rgba(219, 148, 130, 1)'}}>
       <View style={{flexDirection: 'column', width: 350,}}>
       <Text style={{ color: 'white', fontSize: 20, opacity: 0.4, marginBottom:10}}>
           {message.user}
@@ -80,6 +78,18 @@ const ChatMessage = ({message}) => {
         </Text>
       </View>
     </View>
+    ): (
+      <View style={{borderWidth: 1, borderColor: 'white', padding: 10, marginBottom: 10, borderRadius: 10}}>
+      <View style={{flexDirection: 'column', width: 350,}}>
+      <Text style={{ color: 'white', fontSize: 20, opacity: 0.4, marginBottom:10}}>
+          {message.user}
+        </Text>        
+        <Text style={{ color: 'white', fontSize: 15,}}>
+          {message.message}
+        </Text>
+      </View>
+    </View>
+    ))
   );
 }
 
