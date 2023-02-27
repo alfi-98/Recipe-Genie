@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Image, View, Text , TextInput, Button, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const RecipeGenie = () => {
   const [input, setInput] = useState("")
   const [chatLog, setChatLog] = useState([])
+  const navigation = useNavigation();
 
   function clearChat(){
     setChatLog([]);
@@ -35,6 +37,12 @@ const RecipeGenie = () => {
   return (
     
     <SafeAreaView style={{ flex: 1, backgroundColor: 'rgba(168, 66, 37, 1)' }}>
+    <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+    <Image
+          source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/left-arrow.png' }}
+          style={{width: 24, height: 24,marginTop: 10, marginLeft: 16,opacity: 0.6}}
+        />
+    </TouchableOpacity>
     <View style={styles.container}>
     <View style={{padding: 10}}>
       <Text style={{ color: 'white', fontSize: 20, opacity: 0.4, marginBottom:10}}>Food Recipe Suggestion</Text>
