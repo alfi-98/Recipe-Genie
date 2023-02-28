@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Image, View, Text , TextInput, Button, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const RecipeGenie = () => {
   const [input, setInput] = useState("")
@@ -10,7 +11,6 @@ const RecipeGenie = () => {
   function clearChat(){
     setChatLog([]);
   }
-
 
   async function handleSubmit(){
     let chatLogNew = [...chatLog, {user: "me", message: `${input}`}]
@@ -73,6 +73,15 @@ const RecipeGenie = () => {
 };
 
 const ChatMessage = ({message}) => {
+    const storeFavourites = async (value) => {
+        try {
+          const key = Math.random().toString(36).substr(2, 9);
+          await AsyncStorage.setItem(key, value);
+          console.log('Data successfully saved with key: ', key);
+        } catch (error) {
+          console.log('Error saving data: ', error);
+        }
+      };
   return (
     (message.user === "me" ? (
       <View style={{borderWidth: 1, borderColor: 'white', padding: 10, marginBottom: 10, borderRadius: 10, backgroundColor: 'rgba(219, 148, 130, 1)'}}>
@@ -94,7 +103,7 @@ const ChatMessage = ({message}) => {
         <Text style={{ color: 'white', fontSize: 15,}}>
           {message.message}
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>storeFavourites(message.message)}>
         <View style={{ flexDirection: 'row', alignItems: 'center' , justifyContent: 'flex-end', marginTop: 10}}>
         <Image
           source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/heart.png' }}
