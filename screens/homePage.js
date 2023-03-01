@@ -1,12 +1,12 @@
 import { View, Text,StyleSheet ,SafeAreaView, TouchableOpacity, Image} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 const HomePage = () => {
   const name = "John";
   const question = "What food do you want to eat today?";
   const navigation = useNavigation();
-
   const handlePress = () => {
     navigation.navigate('RecipeGenie');
   };
@@ -38,7 +38,6 @@ const HomePage = () => {
           </View>
       </TouchableOpacity>
       <View style={styles.infoTable}>
-
       </View>
     </View>
     </SafeAreaView>
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
       text: {
         fontSize: 15,
         color: 'white',
-        marginLeft: 10
+        marginLeft: 10 
       },
       fav:{
           height: 100,

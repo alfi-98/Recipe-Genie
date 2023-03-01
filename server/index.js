@@ -14,7 +14,8 @@ app.use(cors())
 const port  = 3080
  
 app.post('/', async (req, res) => {
-    const {message} = req.body;
+    try {
+        const {message} = req.body;
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: `${message}`,
@@ -24,6 +25,10 @@ app.post('/', async (req, res) => {
     res.json({
         message: response.data.choices[0].text,
     })
+    }catch(error){
+        console.error(error)
+        res.status(500).json({ message: "Internal server error" });
+    }
 })
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
