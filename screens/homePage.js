@@ -12,30 +12,16 @@ const HomePage = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "rgba(16,13,14,1)" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "rgba(246, 246, 246, 1)" }}>
     <View style={styles.container}>
-      <Text style={{ color: "white", fontSize: 20 }}>Hi, {name},</Text>
-      <Text style={{ color: "white", fontSize: 15, opacity: 0.4 }}>{question}</Text>
+      <Text style={{ color: "#134f5c", fontSize: 20 }}>Hi, {name},</Text>
+      <Text style={{ color: "#134f5c", fontSize: 15, opacity: 0.4 }}>{question}</Text>
       <TouchableOpacity style={styles.button1} onPress={handlePress}>
-      <Text style={styles.text}>Search Recipes</Text>
+      <Text style={styles.text}>Use Our Genie</Text>
       <Image
           source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/next.png' }}
           style={{width: 24, height: 24, marginRight: 10,}}
         />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.fav} onPress={() => navigation.navigate('FavouritesPage')}>
-          <Text style={{color: 'black', fontSize: 30, padding: 10,}}>
-              Favourites
-          </Text>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-          <Text style={{color: 'black', fontSize: 13, maxWidth: 250, paddingLeft: 10, opacity: 0.5}}>
-              Find your favourite ingredients and their nutrition values
-          </Text>
-          <Image
-          source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/next.png' }}
-          style={{width: 24, height: 24, marginRight: 10,}}
-          />
-          </View>
       </TouchableOpacity>
       <View style={styles.infoTable}>
       </View>
@@ -46,7 +32,7 @@ const HomePage = () => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "rgba(16,13,14,1)",
+        backgroundColor: "rgba(246, 246, 246, 1)",
          flex: 1, 
          margin: 16,
          paddingTop: 30,
@@ -58,7 +44,7 @@ const styles = StyleSheet.create({
         elevation: 3,
         marginBottom: 10,
         marginTop: 10,
-        backgroundColor: 'rgba(168, 66, 37, 1)',
+        backgroundColor: 'rgba(116, 185, 190, 1)',
         borderRadius: 10,
         flexDirection: 'row',
         justifyContent: 'space-between'
@@ -75,7 +61,7 @@ const styles = StyleSheet.create({
       },
       infoTable: {
           height: 400,
-          backgroundColor: 'rgba(246, 246, 246, 1)',
+          backgroundColor: 'rgba(116, 185, 190, 1)',
           borderRadius: 10,
           marginTop: 10,
       }
