@@ -12,9 +12,15 @@ const Tab = createBottomTabNavigator();
 const AppNavigator = () => {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-            activeTintColor: 'rgba(116, 185, 190, 1)',
-            inactiveTintColor: 'rgba(116, 185, 190, 0.5)',
+      screenOptions={{
+        "tabBarActiveTintColor": "rgba(116, 185, 190, 1)",
+        "tabBarInactiveTintColor": "rgba(116, 185, 190, 0.5)",
+        "tabBarStyle": [
+          {
+            "display": "flex"
+          },
+          null
+        ]
       }}   
       >
       <Tab.Screen  options={{ headerShown: false }} name="Home" component={HomePage} />

@@ -33,7 +33,7 @@ const FavouritesPage = () => {
 
   return (
 
-    <SafeAreaView style={{ flex: 1,  backgroundColor: 'black' }}>
+    <SafeAreaView style={{ flex: 1,  backgroundColor: 'rgba(246, 246, 246, 1)' }}>
     <TouchableOpacity onPress={() => navigation.navigate('Home')}>
     <Image
           source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/left-arrow.png' }}
@@ -42,11 +42,11 @@ const FavouritesPage = () => {
     </TouchableOpacity>
     <View style={styles.container}>
     <View style={{padding: 10}}>
-      <Text style={{ color: 'white', fontSize: 20, marginBottom:10}}>Favourite Recipes</Text>
+      <Text style={{ color: '#0c343d', fontSize: 20, marginBottom:10}}>Favourite Recipes</Text>
     </View>
       <ScrollView>
         {favourites.map((favourite, index) => (
-            <RecipeCard key={index} message={favourite[1]} />
+            <RecipeCard key={index} message={favourite[1]} itemKey={favourite[0]}/>
           ))}
       </ScrollView>
     </View>
@@ -54,7 +54,7 @@ const FavouritesPage = () => {
   );
 };
 
-const RecipeCard = ({message}) => {
+const RecipeCard = ({message, itemKey}) => {
     const messageLines = message.split('\n');
     const title = messageLines[2];
     const [foodVal, setFoodVal] = useState("");
@@ -80,9 +80,9 @@ const RecipeCard = ({message}) => {
       }
       const BottomSheetContent = () => (
         <View style={{ padding: 16 }}>
-          {loading ? <ActivityIndicator color={'#351c75'}/> : 
+          {loading ? <ActivityIndicator color={'rgba(116, 185, 190, 1)'}/> : 
           <View>
-          <Text style={{color: '#351c75', fontSize: 20}}>
+          <Text style={{color: 'rgba(116, 185, 190, 1)', fontSize: 20}}>
               Nutritional Values
           </Text>
           <Text>{foodVal.message}</Text></View>}
@@ -92,13 +92,17 @@ const RecipeCard = ({message}) => {
         console.log("test",foodVal.message)
       }, [foodVal]);
 
+      const handleDelete = (itemKey) => {
+        AsyncStorage.removeItem(itemKey);
+      }
+
   return (
-      <View style={{ borderWidth: 0.5, borderColor: 'rgba(0, 0, 0, 0.2)', padding: 10, marginBottom: 10, borderRadius: 10,  backgroundColor: 'rgba(153, 130, 191, 1)'}}> 
+      <View style={{ borderWidth: 0.5, borderColor: 'rgba(246, 246, 246, 1)', padding: 10, marginBottom: 10, borderRadius: 10,  backgroundColor: 'rgba(116, 185, 190, 1)'}}> 
       <View style={{flexDirection: 'column', width: 350, }}>      
         <Text style={{ color: 'white', fontSize: 20, }}>
         {title}
         </Text>
-        <Text style={{ color: '#d9d2e9', fontSize: 15, opacity: 1, }}>
+        <Text style={{ color: '#0c343d', fontSize: 15, opacity: 1, }}>
         {message}
         </Text>
         <View style={{flexDirection: 'row', justifyContent: 'flex-end', marginRight: 8, marginTop: 10}}>
@@ -113,7 +117,7 @@ const RecipeCard = ({message}) => {
         </Text>
         </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.foodValueButton}>
+        <TouchableOpacity style={styles.foodValueButton} onPress={handleDelete(itemKey)}>
         <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 5}}> 
         <Image
           source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/cross-circle.png' }}
@@ -153,10 +157,10 @@ const styles = StyleSheet.create({
       fontSize: 15,
     },
     foodValueButton: {
-        backgroundColor: '#674ea7',
+        backgroundColor: 'rgba(116, 185, 190, 1)',
         alignItems: 'center',
         borderRadius: 5,
-        borderColor: '#351c75',
+        borderColor: '#0c343d',
         marginRight: 5,
         borderWidth: 1
     }

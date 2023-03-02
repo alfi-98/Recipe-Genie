@@ -4,7 +4,8 @@ const express = require("express")
 const configuration = new Configuration({ 
     organization: "org-RTqBwF40uGBotmcsqFpeBnEw",
     apiKey: process.env.OPENAI_API_KEY,
-});
+    
+})
 const openai = new OpenAIApi(configuration);
 const bodyParser = require('body-parser')
 const cors = require('cors')

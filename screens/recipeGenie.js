@@ -36,7 +36,7 @@ const RecipeGenie = () => {
 
   return (
     
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'rgba(168, 66, 37, 1)' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'rgba(116, 185, 190, 1)' }}>
     <TouchableOpacity onPress={() => navigation.navigate('Home')}>
     <Image
           source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/left-arrow.png' }}
@@ -45,10 +45,10 @@ const RecipeGenie = () => {
     </TouchableOpacity>
     <View style={styles.container}>
     <View style={{padding: 10}}>
-      <Text style={{ color: 'white', fontSize: 20, opacity: 0.4, marginBottom:10}}>Food Recipe Suggestion</Text>
+      <Text style={{ color: '#0c343d', fontSize: 20, opacity: 1, marginBottom:10}}>Food Recipe Suggestion</Text>
     </View>
       <TextInput 
-      style={{color:'white',borderWidth: 1, width: 280, height: 30, marginBottom: 10, borderRadius: 5, borderColor: "#d5d5d5"}}
+      style={{color:'#0c343d',borderWidth: 1, width: 280, height: 30, marginBottom: 10, borderRadius: 5, borderColor: "#0c343d"}}
         value={input}
         onChangeText={handleInputChange}
         placeholder=" Write Something.."
@@ -84,7 +84,7 @@ const ChatMessage = ({message}) => {
       };
   return (
     (message.user === "me" ? (
-      <View style={{borderWidth: 1, borderColor: 'white', padding: 10, marginBottom: 10, borderRadius: 10, backgroundColor: 'rgba(219, 148, 130, 1)'}}>
+      <View style={{borderWidth: 1, borderColor: 'white', padding: 10, marginBottom: 10, borderRadius: 10, backgroundColor: '#76a5af'}}>
       <View style={{flexDirection: 'column', width: 350,}}>
       <Text style={{ color: 'white', fontSize: 20, opacity: 0.4, marginBottom:10}}>
           {message.user}
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(168, 66, 37, 1)',
+    backgroundColor: 'rgba(116, 185, 190, 1)',
   },
   button1: {
     alignItems: 'center',
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: 'rgba(168, 66, 37, 1)'
+    color: '#0c343d'
   },
 })
 
