@@ -7,7 +7,7 @@ const RecipeGenie = () => {
   const [input, setInput] = useState("")
   const [chatLog, setChatLog] = useState([])
   const navigation = useNavigation();
-
+  const filters = ["Recipe of", "Orange Juice", "apple Juice", "pizza"];
   function clearChat(){
     setChatLog([]);
   }
@@ -35,6 +35,12 @@ const RecipeGenie = () => {
     setInput(value);
   };
 
+  const handleFilter = (msg) =>{
+    const newInput = input ? `${input} ${msg}` : msg;
+    console.log(newInput)
+    setInput(newInput);
+  }
+
   return (
     
     <SafeAreaView style={{ flex: 1, backgroundColor: 'rgba(246, 246, 246, 1)' }}>
@@ -53,9 +59,17 @@ const RecipeGenie = () => {
         <ChatMessage key={index} message={message}/>
       ))}
       </ScrollView>
+      <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 10, }}>
+      <Text style={{opacity: 0.5}}>Filters: </Text>
+      {filters.map((filter, index) => (
+        <TouchableOpacity style={styles.filter} onPress={()=>handleFilter(filter)}>
+       <Text style={{color: '#0c343d', }}>{filter}</Text>
+      </TouchableOpacity>
+        ))}
+      </View>
       <View style={{alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between'}}>
       <TextInput 
-      style={{color:'#0c343d',borderWidth: 1, width: 280, height: 30, borderRadius: 5, borderColor: "#0c343d"}}
+      style={{color:'#0c343d',borderWidth: 1, width: 280, height: 30, borderRadius: 5, borderColor: "rgba(116, 185, 190, 1)"}}
         value={input}
         onChangeText={handleInputChange}
         placeholder=" Write Something.."
@@ -163,6 +177,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#0c343d'
   },
+  filter:{padding: 5,marginRight: 5, height: 30,backgroundColor: "rgba(116, 185, 190, 0.4)", borderRadius: 5, alignItems: 'center', justifyContent: 'center'}
 })
 
   export default RecipeGenie
