@@ -6,7 +6,7 @@ const PopularRecipes = () => {
     <View style={styles.container}>
       <Image
         source={{
-          uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/food1.jpeg',
+          uri: '/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/food1.jpeg',
         }}
         style={{
           width: 170,

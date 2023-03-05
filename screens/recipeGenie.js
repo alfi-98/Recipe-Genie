@@ -40,7 +40,7 @@ const RecipeGenie = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: 'rgba(246, 246, 246, 1)' }}>
     <TouchableOpacity onPress={() => navigation.navigate('Home')}>
     <Image
-          source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/left-arrow.png' }}
+          source={{ uri: '/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/left-arrow.png' }}
           style={{width: 24, height: 24,marginTop: 10, marginLeft: 16,opacity: 0.6}}
         />
     </TouchableOpacity>
@@ -53,22 +53,27 @@ const RecipeGenie = () => {
         <ChatMessage key={index} message={message}/>
       ))}
       </ScrollView>
-      <View style={{alignItems: 'center', }}>
+      <View style={{alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between'}}>
       <TextInput 
-      style={{color:'#0c343d',borderWidth: 1, width: 280, height: 30, marginBottom: 10, borderRadius: 5, borderColor: "#0c343d"}}
+      style={{color:'#0c343d',borderWidth: 1, width: 280, height: 30, borderRadius: 5, borderColor: "#0c343d"}}
         value={input}
         onChangeText={handleInputChange}
         placeholder=" Write Something.."
         placeholderTextColor="rgba(255, 255, 255, 0.2)"
       />
-      <View style={{flexDirection: 'row', }}>
-      <TouchableOpacity style={styles.button1} onPress={handleSubmit}>
-      <Text style={styles.text}>Send</Text>
+      <TouchableOpacity onPress={handleSubmit}>
+      <Image
+              source={require('/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/paper-plane.png')}
+              style={{ width: 25, height: 25}}
+            />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button2} onPress={clearChat}>
-        <Text style={styles.text}>Clear Chat </Text>
+      <TouchableOpacity onPress={clearChat}>
+      <Image
+              source={require('/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/bin.png')}
+              style={{ width: 25, height: 25}}
+            />
       </TouchableOpacity>
-      </View>
+   
       </View>
     </View>
     </SafeAreaView>
@@ -112,7 +117,7 @@ const ChatMessage = ({message}) => {
         <TouchableOpacity onPress={()=>storeFavourites(message.message)}>
         <View style={{ flexDirection: 'row', alignItems: 'center' , justifyContent: 'flex-end', marginTop: 10}}>
         <Image
-          source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/heart.png' }}
+          source={{ uri: '/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/heart.png' }}
           style={{width: 24, height: 24, marginRight: 10,}}
         />
       </View>

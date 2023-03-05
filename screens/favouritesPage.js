@@ -36,7 +36,7 @@ const FavouritesPage = () => {
     <SafeAreaView style={{ flex: 1,  backgroundColor: 'rgba(246, 246, 246, 1)' }}>
     <TouchableOpacity onPress={() => navigation.navigate('Home')}>
     <Image
-          source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/left-arrow.png' }}
+          source={{ uri: '/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/left-arrow.png' }}
           style={{width: 24, height: 24,marginTop: 10, marginLeft: 16,opacity: 0.6}}
         />
     </TouchableOpacity>
@@ -109,7 +109,7 @@ const RecipeCard = ({message, itemKey}) => {
         <TouchableOpacity style={styles.foodValueButton} onPress={()=> handleSubmit(message)}>
         <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 5}}> 
         <Image
-          source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/calories.png' }}
+          source={{ uri: '/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/calories.png' }}
           style={{width: 20, height: 20,opacity: 0.6,}}
         />
         <Text style={{padding: 5,color: 'white' }}>
@@ -120,7 +120,7 @@ const RecipeCard = ({message, itemKey}) => {
         <TouchableOpacity style={styles.foodValueButton} onPress={handleDelete(itemKey)}>
         <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 5}}> 
         <Image
-          source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/cross-circle.png' }}
+          source={{ uri: '/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/cross-circle.png' }}
           style={{width: 20, height: 20,opacity: 0.6}}
         />
         <Text style={{padding: 5,color: 'white' }}>

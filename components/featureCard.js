@@ -7,7 +7,7 @@ const FeatureCard = () => {
       <View style={{padding: 10}}>
         <Image
           source={{
-            uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/ramen.png',
+            uri: '/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/ramen.png',
           }}
           style={{width: 50, height: 50, borderRadius: 10, marginLeft: 280}}
         />

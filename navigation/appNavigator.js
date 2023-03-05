@@ -4,7 +4,8 @@ import HomePage from '../screens/homePage';
 import RecipeGenie from '../screens/recipeGenie';
 import FavouritesPage from '../screens/favouritesPage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Image} from 'react-native';
+//import Icon from 'react-native-vector-icons/AntDesign'
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -27,8 +28,12 @@ const AppNavigator = () => {
         component={HomePage}
         options={{
           headerShown: false,
+          
           tabBarIcon: ({ color, size }) => (
-            <Icon name="rocket" size={size} color={color} />
+            <Image
+              source={require('/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/home.png')}
+              style={{ width: size, height: size}}
+            />
           )
         }}
       />
@@ -38,7 +43,10 @@ const AppNavigator = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <Icon name="magic" size={size} color={color} />
+            <Image
+              source={require('/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/bot.png')}
+              style={{ width: size, height: size}}
+            />
           )
         }}
       />
@@ -48,7 +56,10 @@ const AppNavigator = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <Icon name="heart" size={size} color={color} />
+            <Image
+              source={require('/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/fav.png')}
+              style={{ width: size, height: size}}
+            />
           )
         }}
       />

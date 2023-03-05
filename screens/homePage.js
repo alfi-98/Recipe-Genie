@@ -39,7 +39,7 @@ const HomePage = () => {
           <Text style={styles.text}>Use Our Genie</Text>
           <Image
             source={{
-              uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/next.png',
+              uri: '/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/next.png',
             }}
             style={{width: 24, height: 24, marginRight: 10}}
           />
@@ -49,7 +49,7 @@ const HomePage = () => {
           <View style={{padding: 10}}>
             <Image
               source={{
-                uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/ramen.png',
+                uri: '/Users/imac/Documents/alfiDev/Recipe-Genie/assets/images/ramen.png',
               }}
               style={{width: 50, height: 50, borderRadius: 10, marginLeft: 280}}
             />
