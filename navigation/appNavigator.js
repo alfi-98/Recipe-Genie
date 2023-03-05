@@ -4,8 +4,7 @@ import HomePage from '../screens/homePage';
 import RecipeGenie from '../screens/recipeGenie';
 import FavouritesPage from '../screens/favouritesPage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -13,19 +12,46 @@ const AppNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        "tabBarActiveTintColor": "rgba(116, 185, 190, 1)",
-        "tabBarInactiveTintColor": "rgba(116, 185, 190, 0.5)",
-        "tabBarStyle": [
+        tabBarActiveTintColor: 'rgba(116, 185, 190, 1)',
+        tabBarInactiveTintColor: 'rgba(116, 185, 190, 0.5)',
+        tabBarStyle: [
           {
-            "display": "flex"
+            display: 'flex'
           },
           null
         ]
-      }}   
-      >
-      <Tab.Screen  options={{ headerShown: false }} name="Home" component={HomePage} />
-      <Tab.Screen   options={{ headerShown: false }} name="RecipeGenie" component={RecipeGenie} />
-      <Tab.Screen   options={{ headerShown: false }} name="FavouritesPage" component={FavouritesPage}/>
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={HomePage}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="rocket" size={size} color={color} />
+          )
+        }}
+      />
+      <Tab.Screen
+        name="RecipeGenie"
+        component={RecipeGenie}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="magic" size={size} color={color} />
+          )
+        }}
+      />
+      <Tab.Screen
+        name="FavouritesPage"
+        component={FavouritesPage}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="heart" size={size} color={color} />
+          )
+        }}
+      />
     </Tab.Navigator>
   );
 };

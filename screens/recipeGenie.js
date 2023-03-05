@@ -13,6 +13,7 @@ const RecipeGenie = () => {
   }
 
   async function handleSubmit(){
+    console.log(process.env.OPENAI_API_KEY)
     let chatLogNew = [...chatLog, {user: "me", message: `${input}`}]
     console.log(chatLog)
     setInput("")
@@ -36,7 +37,7 @@ const RecipeGenie = () => {
 
   return (
     
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'rgba(116, 185, 190, 1)' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'rgba(246, 246, 246, 1)' }}>
     <TouchableOpacity onPress={() => navigation.navigate('Home')}>
     <Image
           source={{ uri: '/Users/imac/Documents/alfiDev/fubol/assets/images/left-arrow.png' }}
@@ -47,6 +48,12 @@ const RecipeGenie = () => {
     <View style={{padding: 10}}>
       <Text style={{ color: '#0c343d', fontSize: 20, opacity: 1, marginBottom:10}}>Food Recipe Suggestion</Text>
     </View>
+    <ScrollView>
+      {chatLog.map((message, index) => (
+        <ChatMessage key={index} message={message}/>
+      ))}
+      </ScrollView>
+      <View style={{alignItems: 'center', }}>
       <TextInput 
       style={{color:'#0c343d',borderWidth: 1, width: 280, height: 30, marginBottom: 10, borderRadius: 5, borderColor: "#0c343d"}}
         value={input}
@@ -62,11 +69,7 @@ const RecipeGenie = () => {
         <Text style={styles.text}>Clear Chat </Text>
       </TouchableOpacity>
       </View>
-      <ScrollView>
-      {chatLog.map((message, index) => (
-        <ChatMessage key={index} message={message}/>
-      ))}
-      </ScrollView>
+      </View>
     </View>
     </SafeAreaView>
   );
@@ -84,21 +87,24 @@ const ChatMessage = ({message}) => {
       };
   return (
     (message.user === "me" ? (
-      <View style={{borderWidth: 1, borderColor: 'white', padding: 10, marginBottom: 10, borderRadius: 10, backgroundColor: '#76a5af'}}>
-      <View style={{flexDirection: 'column', width: 350,}}>
-      <Text style={{ color: 'white', fontSize: 20, opacity: 0.4, marginBottom:10}}>
+      <View style={{alignItems: 'flex-start'}}>
+      <View style={{borderWidth: 1, borderColor: '#0c343d', padding: 10, marginBottom: 10, borderRadius: 10, maxWidth: 250}}>
+      <View style={{flexDirection: 'column', }}>
+      <Text style={{ color: '#0c343d', fontSize: 20, opacity: 0.4, marginBottom:10}}>
           {message.user}
         </Text>        
-        <Text style={{ color: 'white', fontSize: 15,}}>
+        <Text style={{ color: '#0c343d', fontSize: 15,}}>
           {message.message}
         </Text>
       </View>
     </View>
+    </View>
     ): (
-      <View style={{borderWidth: 1, borderColor: 'white', padding: 10, marginBottom: 10, borderRadius: 10}}>
-      <View style={{flexDirection: 'column', width: 350,}}>
+      <View style={{alignItems: 'flex-end'}}>
+      <View style={{borderWidth: 1, borderColor: 'white', padding: 10, marginBottom: 10, borderRadius: 10,  backgroundColor: '#0c343d',  maxWidth: 250}}>
+      <View style={{flexDirection: 'column'}}>
       <Text style={{ color: 'white', fontSize: 20, opacity: 0.4, marginBottom:10}}>
-          {message.user}
+          genie
         </Text>        
         <Text style={{ color: 'white', fontSize: 15,}}>
           {message.message}
@@ -113,6 +119,7 @@ const ChatMessage = ({message}) => {
         </TouchableOpacity>
       </View>
     </View>
+    </View>
     ))
   );
 }
@@ -120,9 +127,8 @@ const ChatMessage = ({message}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(116, 185, 190, 1)',
+    margin: 10,
+    backgroundColor: 'rgba(246, 246, 246, 1)',
   },
   button1: {
     alignItems: 'center',
@@ -132,7 +138,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginBottom: 10,
     marginRight: 10,
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(116, 185, 190, 1)',
     borderTopLeftRadius: 10, 
     borderBottomLeftRadius: 10, 
   },

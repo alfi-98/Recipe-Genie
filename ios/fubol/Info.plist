@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FontAwsome.ttf</string>
+		<string>Foundation.tff</string>
+		<string>Ionicons.tff</string>
+		<string>MaterialIcons.tff</string>
+		<string>Entopy.tff</string>
+		<string>Feather.tff</string>
+		<string>AntDesign.tff</string>
+		<string>FontAwsome5_Regular.tff</string>
+	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
